@@ -1,0 +1,26 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/catppuccin_latte.toml"
+]
+
+[font]
+size = 14.0
+
+[terminal.shell]
+program = "/opt/homebrew/bin/fish"
+args = ["--login"]
+
+[[keyboard.bindings]]
+key = "Tab"
+mods = "Control"
+chars = "\u001b[27;5;9~"
+
+[[keyboard.bindings]]
+key = "Tab"
+mods = "Control|Shift"
+chars = "\u001b[27;6;9~"
+
+[[keyboard.bindings]]
+key = "W"
+mods = "Command"
+action = "None"
