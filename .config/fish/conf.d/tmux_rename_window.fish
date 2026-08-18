@@ -4,7 +4,10 @@
 
 function __tmux_set_window_name
     if set -q TMUX
-        tmux rename-window "$argv[1]@"(basename (pwd))
+        # -t $TMUX_PANE targets this shell's own window; without it tmux renames
+        # whichever window is active, so hooks firing in an unfocused window
+        # (e.g. while a script creates windows) would rename the wrong tab.
+        tmux rename-window -t $TMUX_PANE "$argv[1]@"(basename (pwd))
     end
 end
 
